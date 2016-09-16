@@ -1,0 +1,46 @@
+---
+layout: default
+---
+<div class="home">
+  <header>
+    <h1>Jobs-to-be-done</h1>
+    <h2>A collection of resources about the Jobs-to-be-done framework applied to digital producs.</h2>
+  </header>
+
+<div class="links grid">
+  {% for post in site.posts %}
+  <article class="link">
+    <h1>{{ post.title | escape }}</h1>
+    <p>{{ post.description }}</p>
+  </article>
+  {% endfor %}
+  {% for post in site.posts %}
+  <article class="link">
+    <h1>{{ post.title | escape }}</h1>
+    <p>{{ post.description }}</p>
+  </article>
+  {% endfor %}
+  {% for post in site.posts %}
+  <article class="link">
+    <h1>{{ post.title | escape }}</h1>
+    <p>{{ post.description }}</p>
+  </article>
+  {% endfor %}
+  {% for post in site.posts %}
+  <article class="link">
+    <h1>{{ post.title | escape }}</h1>
+    <p>{{ post.description }}</p>
+  </article>
+  {% endfor %}      
+  </div>
+  <div style="clear:both;"></div>
+</div>
+
+<script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="vendor/masonry/dist/masonry.pkgd.js"></script>
+<script type="text/javascript">
+  $('.grid').masonry({
+    // options
+    itemSelector: '.link',
+  });  
+</script>
