@@ -4,7 +4,7 @@
 @charset "utf-8";
 
 // Our variables
-$base-font-family: "Lato", Helvetica, Arial, sans-serif;
+$base-font-family: 'Merriweather', serif;
 $base-font-size:   18px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
@@ -12,9 +12,9 @@ $base-line-height: 1.5;
 
 $spacing-unit:     30px;
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+$text-color:       #171717;
+$background-color: white;
+$brand-color:      #f7f7f7;
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
@@ -27,16 +27,19 @@ $on-palm:          600px;
 $on-laptop:        800px;
 
 // Minima also includes a mixin for defining media queries.
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
 
-// Import partials from the `minima` theme.
-@import "minima";
+html,body {
+  margin: 0;
+  padding: 0;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+}
 
 // Custom
 code {
@@ -48,6 +51,59 @@ pre, code {
 
 html, body {
   min-height: 100%;
+  font-family: $base-font-family;
+}
+
+a {
+  transition: all 0.5s ease;
+  text-decoration: none;
+  color: $text-color;
+  &:hover,&:visited,&:active {
+    color: $text-color;
+    text-decoration: none;
+  }
+}
+
+
+header {
+  background-color: #0034FF;
+  width: 100%;
+  display: block;
+  color: white !important;
+  height: 140px;
+  font-size: 13px;
+  .left, .right {
+    display: flex;
+    align-items: center; 
+    height: 140px;
+  }
+  .left {
+    float: left;
+    margin-left: 40px;
+  }
+  .right {
+    float: right;
+    margin-right: 40px;
+  }
+
+  img.logo {
+    margin: 0 40px 20px 0px;
+  }
+  h2 {
+    margin:0;
+    width: 450px;
+    font-size: 13px;
+    font-weight: 300;
+  }
+  a.button {
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 5px 7px;
+    &:hover,&:visited,&:active {
+      color: white;
+      border: 1px solid white;
+    }
+  }  
 }
 
 .grid {
@@ -62,5 +118,23 @@ html, body {
       background-color: red;
     }
   }
+}
+
+// Media queries
+@include media-query($on-palm) {
+    header h2 {
+      display: none;
+    }
+    .grid {
+      padding: 0;
+      .link {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        .content {
+        }
+
+      }
+    }
 }
 
