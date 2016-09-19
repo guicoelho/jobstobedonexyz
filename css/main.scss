@@ -204,9 +204,20 @@ header {
     }
   }
 }
+footer {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: right;
+  padding: 30px 15px 30px 15px;
+  font-size: 12px;
+  color: #838a83;    
+}
 
 // Media queries
 @include media-query($on-laptop) {
+  footer {
+      text-align: center;
+  }
   header h2, .filters {
     display: none;
   }
