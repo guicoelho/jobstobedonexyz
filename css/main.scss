@@ -220,6 +220,10 @@ header {
     }      
 }
 @include media-query($on-palm) {
+  img.logo {
+    margin-right: 0;
+    width: 120px;
+  }
   .grid {
     padding: 0;
     .link {
