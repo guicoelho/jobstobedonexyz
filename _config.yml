@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Jobs-to-be-Done Resources
+title: Jobs-to-be-Done resources
 email: me@iamguico.com
 description: A curated collection of resources about the Jobs-to-be-done framework with a focus on digital products.
 baseurl: "" # the subpath of your site, e.g. /blog
