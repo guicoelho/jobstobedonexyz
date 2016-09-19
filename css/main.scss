@@ -213,6 +213,7 @@ header {
     .grid {
       margin-top: 0;
       width: 100%;
+      float: none;
       .link {
         width: calc((100% - 40px)/2);
       }
