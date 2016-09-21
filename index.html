@@ -12,7 +12,7 @@ layout: default
 </div>
 <div class="links grid">
   {% for post in site.posts %}
-  <article class="link {{ post.type }} {{post.categories}}">
+  <article class="link visible {{ post.type }} {% for cat in post.categories%}{{ cat }} {% endfor %}">
     <a href="{{ post.link }}" target="_blank">
       <div class="content">
         <p class="type">{{ post.type }} {% if post.type == "video" %}<i class="fa fa-video-camera fa-small" aria-hidden="true"></i>{% endif %}</p>
@@ -28,22 +28,22 @@ layout: default
     </a>
   </article>
   {% endfor %} 
-  </div>
+</div>
   <div style="clear:both;"></div>
 
 <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="vendor/masonry/dist/masonry.pkgd.js"></script>
 <script type="text/javascript">
-  $('.grid').masonry({
+  var $grid = $('.grid').masonry({
     // options
-    itemSelector: '.link',
+    itemSelector: '.link.visible',
   });  
   $('div.filters li').click(function(e){
     // Toggle selected state
     $(e.target).toggleClass("selected");
     
     // Hide all elements
-    $('article.link').hide();
+    $('article.link').hide().removeClass('visible');
 
     // Show selected elements
     var selected = $('div.filters li.selected');
@@ -51,17 +51,15 @@ layout: default
     if(selected.length) {
       $('div.filters li.selected').each(function(){
         var cat = $(this).attr('data-category');
-        $('article.'+cat).show();
+        $('article.'+cat).show().addClass('visible');
       });
     } else {
-      $('article').show();
+      $('article').show().addClass('visible');
     }
 
     // Re-build grid
-    $('.grid').masonry({
-    // options
-    itemSelector: '.link',
-  }); 
+    $grid.masonry('reloadItems');
+    $grid.masonry('layout');
 
   });
 </script>
