@@ -19,7 +19,7 @@ layout: default
         <h1>{{ post.title | escape }}</h1>
         <p class="description">{{ post.description }}</p>
         {% if post.img %}
-        <div class="img" style="background-image: url('img/{{post.img}}')"></div>
+        <div class="img" style="background-image: url('img/posts/{{post.img}}')"></div>
         {% endif %}
         {% if post.author %}
           <small>by <i>{{ post.author }}</i></small>
